@@ -5,7 +5,7 @@ import Contents from './components/Contents';
 class App extends React.Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/trybetunes">
         <Contents />
       </BrowserRouter>
     );

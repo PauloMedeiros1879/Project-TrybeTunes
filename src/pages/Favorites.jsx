@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Loading from '../components/Loading';
 
 class Favorites extends Component {
   render() {
     return (
       <div data-testid="page-favorites">
-        <p> hello trybetunes </p>
+        <Loading loading={ loading } />
       </div>
     );
   }

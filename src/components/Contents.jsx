@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Login from '../pages/Login';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Search from '../pages/Search';
 import Album from '../pages/Album';
 import Favorites from '../pages/Favorites';
@@ -11,10 +10,11 @@ import NotFound from '../pages/NotFound';
 class Contents extends Component {
   render() {
     return (
-
-      <div>
+      <main data-testid="page-login">
         <Switch>
-          <Route exact path="/" component={ Login } />
+          <Route exact path="/">
+            <Redirect to="/seach" />
+          </Route>
           <Route path="/search" component={ Search } />
           <Route path="/album/:id" component={ Album } />
           <Route path="/favorites" component={ Favorites } />
@@ -22,7 +22,7 @@ class Contents extends Component {
           <Route path="/profile/edit" component={ ProfileEdit } />
           <Route component={ NotFound } />
         </Switch>
-      </div>
+      </main>
     );
   }
 }
