@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 
@@ -8,40 +8,30 @@ class Login extends Component {
     super();
     this.state = {
       name: '',
-      btnDisabled: true,
+      btnDisabled: false,
       loading: false,
     };
   }
 
-handleClick = (handleSubmit) => {
+handleClick = async () => {
   const { name } = this.state;
   this.setState({ loading: true });
-  createUser({ name }).then(() => {
-    handleSubmit();
-  });
+  await createUser({ name });
+  this.setState({ btnDisabled: true });
 }
 
-handleChange = ({ target }) => {
-  const { name, value } = target;
-  const minValue = 3;
-  this.setState({
-    [name]: value,
-  });
-  if (name === 'name') {
-    this.setState({
-      btnDisabled: value.length < minValue,
-    });
-  }
+handleChange =(event) => {
+  event.preventDefault();
+  this.setState({ name: event.target.value });
 }
 
 render() {
   const { name, btnDisabled, loading } = this.state;
-  const { handleSubmit } = this.props;
+  const minValue = 3;
   return (
     <div data-testid="page-login">
-      {loading ? (
-        <Loading loading={ loading } />
-      ) : (
+      {btnDisabled && <Redirect to="/search" />}
+      {loading ? <Loading /> : (
         <form>
           <label htmlFor="name">
             Nome:
@@ -57,10 +47,8 @@ render() {
           <button
             type="submit"
             data-testid="login-submit-button"
-            onClick={ () => {
-              this.handleClick(handleSubmit);
-            } }
-            disabled={ btnDisabled }
+            onClick={ this.handleClick }
+            disabled={ name.length < minValue }
           >
             Entrar
           </button>
@@ -70,9 +58,5 @@ render() {
   );
 }
 }
-
-Login.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-};
 
 export default Login;
