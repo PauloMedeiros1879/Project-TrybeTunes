@@ -55,7 +55,7 @@ render() {
           </label>
 
           <button
-            type="button"
+            type="submit"
             data-testid="login-submit-button"
             onClick={ () => {
               this.handleClick(handleSubmit);
