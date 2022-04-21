@@ -15,7 +15,6 @@ class AlbumList extends Component {
           <img
             src={ artworkUrl100 }
             alt="Capa do álbum"
-            className="album-artwork"
           />
           <p>{ collectionName }</p>
         </Link>
