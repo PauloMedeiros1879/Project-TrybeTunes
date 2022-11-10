@@ -1,12 +1,21 @@
 # Projeto Trybetunes!
+###### by _[Paulo Medeiros](https://www.linkedin.com/in/paulo-medeiros-dev1879/)_
+
+## :page_with_curl: Sobre
+
 Nesse projeto foi desenvolvido uma aplicação para encontrar álbuns de determinado artista utilizando Ciclos de vida de Componentes React e React Router.
 
-## Desempenho:
-O projeto Trybetunes foi desenvolvido por Paulo Medeiros durante o curso de Desenvolvimento Web na Trybe! Foi adquirido 100% do projeto total.
+## ⚙️ Como Executar
+Clone o repositório em uma pasta de preferência
 
-## Como utilizar:
-Clone o repositório: git@github.com:PauloMedeiros1879/Project-TrybeTunes.git
-
-Acesse a pasta do repositório clonado.
-
-Rode o comando npm install para instalar as dependências do projeto e npm start para visualizar no navegador.
+```
+git@github.com:PauloMedeiros1879/Project-TrybeTunes.git
+```
+Entre na pasta que você acabou de clonar, e instale as dependencias
+```
+npm install
+```
+Para rodar o projeto no navegador, basta utilizar o codigo abaixo
+```
+npm start
+```
